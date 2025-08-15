@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
+
 import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
@@ -10,6 +10,7 @@ import {
   IconTableColumn,
 } from "@tabler/icons-react";
 import { motion } from "motion/react";
+import {cn} from "@/lib/utils";
 
 
 export function FeatureBentoGrid() {

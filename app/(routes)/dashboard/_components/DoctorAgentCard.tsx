@@ -8,7 +8,8 @@ import axios from 'axios';
 import { Loader2Icon } from 'lucide-react';
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { SessionDetail } from '../medical-agent/[sessionId]/page';
 
 export type DoctorProps = {
     id: number
@@ -26,11 +27,24 @@ type props = {
 
 function DoctorAgentCard({doctorAgent}:props) {
   const [loading, setLoading] = useState(false);
+  const [historyList, setHistoryList] = useState<SessionDetail[]>([]);
   const router = useRouter();
 
   const {has} = useAuth();
   //@ts-ignore
   const paidUser = has && has({plan:"pro"});
+
+useEffect(()=>{
+          GetHistoryList();
+      },[])
+  
+  
+      const GetHistoryList = async() =>{
+        const result = await axios.get('/api/session-chat?sessionId=all');
+        console.log(result.data);
+        setHistoryList(result.data);
+       
+      }
 
 
 const onStartConsultation = async() =>{
@@ -58,7 +72,7 @@ const onStartConsultation = async() =>{
         />
         <h2 className='font-bold text-xl'>{doctorAgent.specialist}</h2>
         <p className='line-clamp-2 mt-1'>{doctorAgent.description}</p>
-        <Button className='mt-1' disabled={!paidUser&&doctorAgent.subscriptionRequired} onClick={onStartConsultation}>Start Consultation {loading? <Loader2Icon className='animate-spin'/>: <IconArrowRight/>}</Button>
+        <Button className='mt-1' disabled={!paidUser&&doctorAgent.subscriptionRequired || !paidUser&&historyList?.length>=1} onClick={onStartConsultation}>Start Consultation {loading? <Loader2Icon className='animate-spin'/>: <IconArrowRight/>}</Button>
     </div>
   )
 }

@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "./_components/Footer";
 import { Services } from "./_components/Services";
+import { Team } from "./_components/Team";
 
 export default function Home() {
   return (
@@ -104,6 +105,7 @@ export default function Home() {
         </motion.div>
       </div>
       <Services />
+      <Team />
     </div>
    
   );

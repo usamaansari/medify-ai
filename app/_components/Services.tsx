@@ -43,13 +43,13 @@ export function Services() {
     {
       title: "24/7 Customer Support",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
+        "We are available a 100% of the time. At least our AI Agents are.",
       icon: <IconHelp />,
     },
     {
-      title: "Money back guarantee",
+      title: "Money-Back Guarantee",
       description:
-        "If you donot like Medify AI, we will convince you to like us.",
+        "If you do not like Medify AI, we will convince you to like us.",
       icon: <IconAdjustmentsBolt />,
     },
     {

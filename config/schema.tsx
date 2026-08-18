@@ -17,3 +17,15 @@ export const SessionChatTable = pgTable('sessionChatTable',{
   createdBy:varchar().references(()=>usersTable.email),
   createdOn: varchar()
 })
+
+export const MedicalRecordsTable = pgTable('medicalRecordsTable', {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  fileName: varchar({ length: 255 }).notNull(),
+  fileUrl: varchar({ length: 500 }).notNull(),
+  fileType: varchar({ length: 100 }).notNull(),
+  fileSize: integer(),
+  summary: text(),
+  originalContent: text(),
+  createdBy: varchar().references(() => usersTable.email),
+  createdOn: varchar()
+})

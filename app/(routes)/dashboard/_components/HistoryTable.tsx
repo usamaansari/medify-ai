@@ -28,7 +28,7 @@ const HistoryTable = ({historyList}:HistoryTableProps) => {
 
     
     <TableRow>
-      <TableHead>AI Medicak Specialist</TableHead>
+      <TableHead>AI Medical Specialist</TableHead>
       <TableHead>Description</TableHead>
       <TableHead>Date</TableHead>
       <TableHead className="text-right">Action</TableHead>

@@ -16,6 +16,11 @@ const menuOptions = [
     },
     {
         id:3,
+        name:"Medical Records",
+        path:"/dashboard/medical-records"
+    },
+    {
+        id:4,
         name:"Pricing",
         path:"/dashboard/billing"
     }
